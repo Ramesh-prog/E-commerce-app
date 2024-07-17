@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import userRouter from './Routes/user.js';
 import bodyParser from 'express';
 import productRouter from './Routes/product.js';
+import cartRouter from './Routes/cart.js';
 
 const app = express();
 
@@ -16,8 +17,10 @@ app.get('/', (req,res) => res.json({message:'this is home route'}))
 app.use('/api/user', userRouter);
 
 // product Router
-app.use('/api/product', productRouter)
+app.use('/api/product', productRouter);
 
+// cart Router
+app.use('/api/cart', cartRouter);
 
 mongoose.connect(
   "mongodb+srv://hrwebbocket:webbocket20@cluster0.acv3roe.mongodb.net/",
