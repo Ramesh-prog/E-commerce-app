@@ -1,7 +1,8 @@
 import express from "express";
 import mongoose from "mongoose";
-import userRouter from './Routes/user.js'
-import bodyParser from 'express'
+import userRouter from './Routes/user.js';
+import bodyParser from 'express';
+import productRouter from './Routes/product.js';
 
 const app = express();
 
@@ -11,9 +12,11 @@ app.use(bodyParser.json())
 app.get('/', (req,res) => res.json({message:'this is home route'}))
 
 
-
 // user Router 
 app.use('/api/user', userRouter);
+
+// product Router
+app.use('/api/product', productRouter)
 
 
 mongoose.connect(
